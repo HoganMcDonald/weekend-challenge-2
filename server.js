@@ -19,3 +19,27 @@ app.listen(3000, function() {
 app.get('/', function(req, res) {
   res.sendFile(path.resolve('views/index.html'));
 });
+
+//functions
+app.post('/getResult', function(req, res) {
+  console.log(req.body);
+  var responseObject = {
+    result: math(req.body)
+  };
+  res.send(responseObject);
+});
+
+function math(requestObject) {
+  switch (requestObject.type) {
+    case '+':
+      return Number(requestObject.input1) + Number(requestObject.input2);
+    case '-':
+      return Number(requestObject.input1) - Number(requestObject.input2);
+    case '/':
+      return Number(requestObject.input1) / Number(requestObject.input2);
+    case 'x':
+      return Number(requestObject.input1) * Number(requestObject.input2);
+    default:
+      break;
+  }
+}
