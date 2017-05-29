@@ -4,16 +4,30 @@ body {
   display: inline-block;
 }
 
-input {
+.container {
+  text-align: center;
+  margin: auto;
+}
+
+#display {
   background-color: #d68530;
   font-size: 100px;
   border: none;
   outline: none;
   color: #503110;
-  width: 300px;
-  height: 300px;
+  width: 950px;
+  height: 172px;
   margin: 15px;
   text-align: center;
+}
+
+.buttons {
+  width: 1300px;
+  margin: auto;
+}
+
+.equalButton {
+  height
 }
 
 button {
@@ -22,15 +36,15 @@ button {
   border: none;
   outline: none;
   color: #0b474d;
-  width: 300px;
-  height: 300px;
+  width: 213px;
+  height: 172px;
   margin: 15px;
   transition-duration: 200ms;
 }
 
 button:hover {
-  width: 290px;
-  height: 290px;
+  width: 203px;
+  height: 162px;
   margin: 20px;
   background-color: #2698b1;
 }
@@ -46,4 +60,11 @@ button:hover {
   margin: 15px;
   text-align: center;
   display: inline-block;
+}
+
+.active {
+  width: 203px;
+  height: 162px;
+  margin: 20px;
+  background-color: #2698b1;
 }

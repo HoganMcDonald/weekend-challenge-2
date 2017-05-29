@@ -22,7 +22,6 @@ app.get('/', function(req, res) {
 
 //functions
 app.post('/getResult', function(req, res) {
-  console.log(req.body);
   var responseObject = {
     result: math(req.body)
   };
@@ -32,13 +31,13 @@ app.post('/getResult', function(req, res) {
 function math(requestObject) {
   switch (requestObject.type) {
     case '+':
-      return Number(requestObject.input1) + Number(requestObject.input2);
+      return Number(requestObject.memoryValue) + Number(requestObject.currentValue);
     case '-':
-      return Number(requestObject.input1) - Number(requestObject.input2);
+      return Number(requestObject.memoryValue) - Number(requestObject.currentValue);
     case '/':
-      return Number(requestObject.input1) / Number(requestObject.input2);
+      return Number(requestObject.memoryValue) / Number(requestObject.currentValue);
     case 'x':
-      return Number(requestObject.input1) * Number(requestObject.input2);
+      return Number(requestObject.memoryValue) * Number(requestObject.currentValue);
     default:
       break;
   }
