@@ -10,7 +10,7 @@ var requestObject = {
 
 //document on ready function
 $(document).ready(function() {
-
+  $('.spinner').hide();
   //number button on click
   $('.numberButton').on('click', function() {
     requestObject.currentValue += $(this).text();
@@ -42,7 +42,15 @@ $(document).ready(function() {
         success: function(response) {
           //set the current value of the request object to result and update display
           requestObject.currentValue = response.result;
-          updateDisplay();
+          $('button').hide(200, function() {
+            $('#display').val('');
+            $('.spinner').show();
+            setTimeout(function() {
+              $('button').show();
+              $('.spinner').hide();
+              updateDisplay();
+            }, 3000);
+          });
         } //end success function
       }); //end ajax
     } else {
@@ -52,7 +60,6 @@ $(document).ready(function() {
         $('.equalButton').text('=');
       }, 300);
     } //end check if fields are populated
-
   }); //end equals on click
 
   //opperator functions
